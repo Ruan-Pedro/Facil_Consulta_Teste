@@ -7,28 +7,28 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration
 {
     /**
-     * Run the migrations.
+     * Criar a tabela medico
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('medico', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            // $table->timestamp('email_verified_at')->nullable(); --> não será utilizado o padrão do laravel desse campo
-            $table->string('password');
-            $table->rememberToken();
+            $table->string('nome', 100);
+            $table->string('especialidade', 100);
+            $table->unsignedBigInteger('cidade_id')->nullable();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
             $table->softDeletes();
+
+            $table->foreign('cidade_id')->references('id')->on('cidades');
         });
     }
 
     /**
-     * Reverse the migrations.
+     * Reverter a tabela medico
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('medico');
     }
 };
