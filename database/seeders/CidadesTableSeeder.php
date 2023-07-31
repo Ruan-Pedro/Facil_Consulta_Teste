@@ -9,10 +9,10 @@ use Illuminate\Database\Seeder;
 class CidadesTableSeeder extends Seeder
 {
     /**
-     * Run the database seeds.
+     * Insere 50 Cidades aleatórias no banco
      */
     public function run()
     {
-        Cidades::factory(50)->create();
+        Cidades::factory(10)->create();
     }
 }
