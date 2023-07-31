@@ -9,9 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Medico extends Model
 {
     use HasFactory, SoftDeletes;
-    /**
-     * @var string
-     */
+
     protected $table = 'medico';
     protected $fillable = ['nome', 'especialidade', 'cidade_id'];
     protected $dates = ['created_at', 'updated_at', 'deleted_at'];

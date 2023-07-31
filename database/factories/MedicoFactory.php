@@ -17,7 +17,7 @@ class MedicoFactory extends Factory
     {
         return [
             'nome' => $this->faker->name,
-            'especialidade' => $this->faker->randomElement(['Cardiologista', 'Dermatologista', 'Pediatra', 'Ortopedista']),
+            'especialidade' => $this->faker->randomElement(['Neurologista', 'Cardiologista', 'Dermatologista', 'Pediatra', 'Ortopedista']),
             'cidade_id' => function () {
                 return Cidades::factory()->create()->id;
             },

@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-            // $table->timestamp('email_verified_at')->nullable(); --> não será utilizado o padrão do laravel desse campo
             $table->string('password');
             $table->rememberToken();
             $table->timestamp('created_at')->useCurrent();

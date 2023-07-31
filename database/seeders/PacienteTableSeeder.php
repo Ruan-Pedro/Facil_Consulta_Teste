@@ -10,6 +10,12 @@ class PacienteTableSeeder extends Seeder
 {
     public function run(): void
     {
-        Paciente::factory(10)->create();
+        /**
+     * Insere 10 pacientes aleatórios de medico e paciente e um vinculo com os ids da collection
+     */
+        Paciente::factory(9)->create();
+        Paciente::factory()->create([
+            'id' => 103,
+        ]);
     }
 }

@@ -36,12 +36,17 @@ class MedicoController extends Controller
     public function insertDoctor(Request $request)
     {
         $data = $request->json()->all();
+        foreach ($data as $key => $value) {
+            if ($key != "nome" && $key != "especialidade" && $key != "cidade_id") return response()->json([
+                'error' => 'Apenas o campo nome, especialidade e cidade_id podem ser adicionados'
+            ], 422);
+        }
         try {
             $medico = Medico::create($data);
             return response()->json($medico, 201);
         } catch (\Throwable $e) {
             return response()->json([
-                'error' => 'Falha ao vincular paciente e médico',
+                'error' => 'Falha ao inserir o médico',
                 'msg' => $e->getMessage()
             ], 500);
         }

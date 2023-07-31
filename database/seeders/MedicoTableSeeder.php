@@ -10,6 +10,12 @@ class MedicoTableSeeder extends Seeder
 {
     public function run(): void
     {
-        Medico::factory(10)->create();
+        /**
+     * Insere 10 medicos aleatórios de medico e paciente e um vinculo com os ids da collection
+     */
+        Medico::factory(9)->create();
+        Medico::factory()->create([
+            'cidade_id' => 1
+        ]);
     }
 }

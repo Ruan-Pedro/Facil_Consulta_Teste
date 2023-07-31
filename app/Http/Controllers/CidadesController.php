@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cidades;
-use Illuminate\Http\Request;
 
 class CidadesController extends Controller
 {
@@ -11,9 +10,12 @@ class CidadesController extends Controller
     {
         try {
             $cidades = Cidades::all();
-            return response()->json($cidades);
+            return response()->json($cidades,200);
         } catch (\Throwable $e) {
-            return "Erro carregar as cidades" . $e->getMessage();
+            return response()->json([
+                'error' => 'Erro carregar as cidades',
+                'msg' => $e->getMessage()
+            ], 500);
         }
     }
 }
